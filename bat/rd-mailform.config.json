@@ -1,0 +1,8 @@
+{
+  "useSmtp": true,
+  "host": "smtp.gmail.com",
+  "port": 465,
+  "username": "studio-allgraphic@orange.fr",
+  "password": "1Nouveauclient",
+  "recipientEmail": "studio-allgraphic@orange.fr"
+}
