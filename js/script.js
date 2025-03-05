@@ -1485,3 +1485,17 @@
 		}
 	});
 }());
+document.addEventListener("DOMContentLoaded", function() {
+    const choices = document.querySelectorAll(".choice");
+
+    choices.forEach(choice => {
+      choice.addEventListener("click", function() {
+        // Retirer la classe "active" de toutes les options
+        choices.forEach(c => c.classList.remove("active"));
+
+        // Ajouter la classe "active" à l'élément cliqué
+        this.classList.add("active");
+      });
+    });
+  });
+
