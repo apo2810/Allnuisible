@@ -1498,4 +1498,35 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   });
+  document.addEventListener("DOMContentLoaded", function () {
+    // Gérer le menu mobile
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbarMenu = document.querySelector(".navbar-menu");
+
+    menuToggle.addEventListener("click", function () {
+      navbarMenu.classList.toggle("show");
+    });
+
+    // Gérer les sous-menus déroulants
+    const dropdowns = document.querySelectorAll(".dropdown-toggle");
+
+    dropdowns.forEach(dropdown => {
+      dropdown.addEventListener("click", function (e) {
+        e.preventDefault();
+        let dropdownMenu = this.nextElementSibling;
+        dropdownMenu.classList.toggle("show");
+      });
+    });
+
+    // Fermer les sous-menus si on clique ailleurs
+    document.addEventListener("click", function (event) {
+      dropdowns.forEach(dropdown => {
+        let dropdownMenu = dropdown.nextElementSibling;
+        if (!dropdown.contains(event.target) && !dropdownMenu.contains(event.target)) {
+          dropdownMenu.classList.remove("show");
+        }
+      });
+    });
+  });
+
 
