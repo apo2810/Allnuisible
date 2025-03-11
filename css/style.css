@@ -15248,4 +15248,90 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	  text-align: center;
 	}
   }
+  /* ---- SECTION GLOBALE ---- */
+.nuisibles-section {
+	background: #f8f9fa;
+	padding: 50px 0;
+	text-align: center;
+	padding-top: 120px; /* Ajuste selon la hauteur du menu */
+  }
+  
+  .nuisibles-section h2 {
+	font-size: 2.5rem;
+	color: #222;
+	margin-bottom: 40px;
+  }
+  
+  /* ---- CATÉGORIE ---- */
+  .nuisible-category {
+	margin-bottom: 50px;
+  }
+  
+  .nuisible-category h3 {
+	font-size: 2rem;
+	color: #ff8000;
+	text-align: left;
+	padding-left: 20px;
+	margin-bottom: 20px;
+  }
+  
+  /* ---- GRID FLEXIBLE ---- */
+  .nuisible-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 20px;
+	max-width: 1200px;
+	margin: auto;
+	padding: 0 20px;
+  }
+  
+  /* ---- CARTE DE CHAQUE NUISIBLE ---- */
+  .nuisible-card {
+	background: white;
+	border-radius: 10px;
+	padding: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s, box-shadow 0.3s;
+	text-align: center;
+  }
+  
+  .nuisible-card img {
+	width: 100%;
+	max-height: 180px;
+	object-fit: cover;
+	border-radius: 10px;
+	margin-bottom: 10px;
+  }
+  
+  .nuisible-card h4 {
+	font-size: 1.4rem;
+	color: #222;
+	margin-bottom: 10px;
+  }
+  
+  .nuisible-card p {
+	font-size: 1rem;
+	color: #555;
+	line-height: 1.5;
+  }
+  
+  /* ---- EFFET AU SURVOL ---- */
+  .nuisible-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ---- RESPONSIVE (MOBILE) ---- */
+  @media (max-width: 768px) {
+	.nuisibles-section h2 {
+	  font-size: 2rem;
+	}
+	.nuisible-category h3 {
+	  font-size: 1.8rem;
+	  text-align: center;
+	}
+	.nuisible-card p {
+	  font-size: 0.9rem;
+	}
+  }
   
