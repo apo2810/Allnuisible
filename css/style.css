@@ -15320,7 +15320,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	transform: translateY(-5px);
 	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
-  
+  .nuisible-card-full img {
+    width: 100%;
+    height: auto; /* Garde les proportions */
+    max-height: none; /* Supprime la contrainte de hauteur */
+    object-fit: contain; /* Assure que l’image entière est visible */
+}
+
   /* ---- RESPONSIVE (MOBILE) ---- */
   @media (max-width: 768px) {
 	.nuisibles-section h2 {
