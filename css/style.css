@@ -4,6 +4,9 @@
 * Trunk version 2.0.0
 *
 */
+html{
+	scroll-behavior: smooth;
+}
 a:focus,
 button:focus {
 	outline: none !important;
@@ -15265,6 +15268,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   /* ---- CATÉGORIE ---- */
   .nuisible-category {
 	margin-bottom: 50px;
+	scroll-margin-top: 150px;
   }
   
   .nuisible-category h3 {
@@ -15306,13 +15310,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   .nuisible-card h4 {
 	font-size: 1.4rem;
 	color: #222;
-	margin-bottom: 10px;
+	margin-top: 10px;
   }
   
   .nuisible-card p {
 	font-size: 1rem;
 	color: #555;
 	line-height: 1.5;
+	margin-top: 5px;
   }
   
   /* ---- EFFET AU SURVOL ---- */
