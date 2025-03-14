@@ -14872,6 +14872,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	color: white;
 	width: 100%;
 	overflow: hidden;
+	margin-top: 100px;
   }
   
   
@@ -15165,7 +15166,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   
   /* ---- LOGO ---- */
   .logo {
-	height: 50px;
+	height: 110px;
   }
   
   /* ---- MENU ---- */
@@ -15390,7 +15391,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	background: #f8f9fa;
 	padding: 50px 0;
 	text-align: center;
-	padding-top: 120px; /* Ajuste selon la hauteur du menu */
+	padding-top: 200px; /* Ajuste selon la hauteur du menu */
   }
   
   .nuisibles-section h2 {
@@ -15548,4 +15549,46 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 /* Pour inverser les images et le texte dans la deuxième section */
 .service-inverted {
 	flex-direction: row-reverse;
+}
+.section-contact{
+	margin-top: 100px;
+}
+.section-contact .container-fluid {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 5vw; /* Ajoute un léger padding pour ne pas coller aux bords */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+/* Ajustement des colonnes */
+.contact-info-section {
+    flex: 1;
+    max-width: 35%;
+}
+
+.contact-form-section {
+    flex: 2;
+    max-width: 65%;
+}
+
+/* Assurer que le formulaire prend toute la largeur */
+.rd-mailform {
+    width: 100%;
+}
+
+/* Empêcher les colonnes de passer en-dessous sur les écrans larges */
+@media (max-width: 992px) {
+    .row {
+        flex-wrap: wrap;
+    }
+    .contact-info-section, .contact-form-section {
+        max-width: 100%;
+        flex: 1;
+    }
 }

@@ -43,14 +43,14 @@
               <li class="dropdown">
                 <a href="nuisibles.html" class="dropdown-toggle">Les Nuisibles</a>
                 <ul class="dropdown-menu">
+                  <li><a href="nuisibles.html#rat">Rats/Souris</a></li>
+                  <li><a href="nuisibles.html#blatte">Blattes (cafards)</a></li>
                   <li><a href="nuisibles.html#punaise">Punaises de lit</a></li>
-                  <li><a href="nuisibles.html#rat">Rats</a></li>
-                  <li><a href="nuisibles.html#blatte">Blattes</a></li>
                   <li><a href="nuisibles.html#guepe">Guêpes</a></li>
                   <li><a href="nuisibles.html#frelon">Frelons</a></li>
                   <li><a href="nuisibles.html#mouche">Mouches</a></li>
                   <li><a href="nuisibles.html#moustique">Moustiques</a></li>
-                  <li><a href="nuisibles.html#oiseau">Oiseau</a></li>
+                  <li><a href="nuisibles.html#oiseau">Oiseaux</a></li>
                   <li><a href="nuisibles.html#autres">Autres nuisibles</a></li>
                 </ul>
               </li>
@@ -72,32 +72,32 @@
         </header>
       <!--Google Map-->
       
-      <section class="section-md bg-default">
-        <div class="container">
-          <div class="row row-50">
-            <div class="col-md-5 col-lg-4">
-              <h4 class="heading-decorated">Nos coordonées</h4>
+      <section class="section-md bg-default section-contact">
+        <div class="container-fluid"> <!-- Remplace "container" par "container-fluid" pour utiliser toute la largeur -->
+          <div class="row">
+            <div class="col-md-4 col-lg-4 contact-info-section"> <!-- Réduire un peu la largeur des infos -->
+              <h4 class="heading-decorated">Nos coordonnées</h4>
               <ul class="list-sm contact-info">
                 <li>
                   <dl class="list-terms-inline">
-                    <dt>Adresse</dt>
+                    <dt>Adresse </dt>
                     <dd>19 rue Allard, Saint-Mandé 94160</dd>
                   </dl>
                 </li>
                 <li>
                   <dl class="list-terms-inline">
-                    <dt>Téléphone</dt>
+                    <dt>Téléphone </dt>
                     <dd>
                       <ul class="list-semicolon">
-                        <li><a href="tel:06 01 89 72 34">06 70 91 43 84</a></li>
+                        <li><a href="tel:0670914384">06 70 91 43 84</a></li>
                       </ul>
                     </dd>
                   </dl>
                 </li>
                 <li>
                   <dl class="list-terms-inline">
-                    <dt>Nous sommes ouvert</dt>
-                    <dd>lundi-Vendredi : 09h00-19h00</dd>
+                    <dt>Nous sommes ouverts </dt>
+                    <dd>Lundi - Vendredi : <br> 09h00-19h00</dd>
                   </dl>
                 </li>
                 <li>
@@ -109,31 +109,27 @@
                 </li>
               </ul>
             </div>
-            <div class="col-md-7 col-lg-8">
+            <div class="col-md-8 col-lg-8 contact-form-section"> <!-- Augmenter la largeur du formulaire -->
               <h4 class="heading-decorated">Contactez-nous</h4>
-              <!-- RD Mailform-->
               <form class="rd-mailform rd-mailform_style-1" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
                 <div class="form-wrap form-wrap_icon linear-icon-man">
-                  <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
-                  <label class="form-label" for="contact-name">Votre nom</label>
+                  <input class="form-input" id="contact-name" type="text" name="name" placeholder="Votre nom" required>
                 </div>
                 <div class="form-wrap form-wrap_icon linear-icon-envelope">
-                  <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
-                  <label class="form-label" for="contact-email">Votre e-mail</label>
+                  <input class="form-input" id="contact-email" type="email" name="email" placeholder="Votre e-mail" required>
                 </div>
                 <div class="form-wrap form-wrap_icon linear-icon-feather">
-                  <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
-                  <label class="form-label" for="contact-message">Votre demande</label>
+                  <textarea class="form-input" id="contact-message" name="message" placeholder="Votre demande" required></textarea>
                 </div>
                 <div class="form-wrap form-validation-left">
-                  <!--Google captcha-->
-                  <div class="recaptcha" id="captcha1" data-sitekey="6LfZlSETAAAAAC5VW4R4tQP8Am_to4bM3dddxkEt" data-auto-size=""></div>
+                  <div class="recaptcha" id="captcha1" data-sitekey="6LfZlSETAAAAAC5VW4R4tQP8Am_to4bM3dddxkEt"></div>
                 </div>
-                <button class="button button-primary" type="submit">envoyer</button>
+                <button class="button button-primary" type="submit">Envoyer</button>
               </form>
             </div>
           </div>
         </div>
+        
       </section>
 
       <!-- Page Footer-->
