@@ -14930,10 +14930,19 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   }
   
   .phone-number {
-	font-weight: bold;
-	font-size: 1.5rem;
-  }
-  
+    font-size: 28px; /* Augmenter la taille du numéro */
+    font-weight: bold;
+    color: #fff; /* Blanc pour bien contraster */
+    display: inline-block;
+    padding: 15px 20px; /* Plus d'espace autour */
+    border-radius: 8px;
+    letter-spacing: 1px; /* Espacement entre les chiffres pour meilleure lisibilité */
+    text-align: center;
+}
+.phone-number span {
+    font-size: 32px; /* Numéro encore plus grand */
+    font-weight: bold;
+}
   .button-primary {
 	display: inline-block;
 	background: #F39200;
@@ -15621,4 +15630,59 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
         max-width: 100%;
         flex: 1;
     }
+}
+.certibiocide-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8; /* Fond clair pour contraste */
+    padding: 60px 10%;
+}
+
+.certibiocide-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+}
+
+.certibiocide-logo img {
+    width: 180px; /* Ajuste la taille du logo */
+    height: auto;
+}
+
+.certibiocide-text {
+    flex: 1;
+}
+
+.certibiocide-text h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.certibiocide-text p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .certibiocide-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .certibiocide-logo img {
+        width: 150px;
+    }
+}
+/* Mise en avant de l'agrément */
+.certibiocide-agreement {
+    font-size: 18px;
+    color: #d35400; /* Couleur orange pour attirer l'attention */
+    font-weight: bold;
+    margin-top: 15px;
 }
