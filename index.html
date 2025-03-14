@@ -56,11 +56,11 @@
         
               <!-- "Nos Services" avec sous-catégories -->
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle">Nos Services</a>
+                <a href="services.html" class="dropdown-toggle">Nos Services</a>
                 <ul class="dropdown-menu">
-                  <li><a href="desinfection.html">Diagnostique</a></li>
-                  <li><a href="desinsectisation.html">Traitement</a></li>
-                  <li><a href="traitement.html">Suivi</a></li>
+                  <li><a href="services.html#diagnostic">Diagnostic</a></li>
+                  <li><a href="services.html#traitement">Traitement</a></li>
+                  <li><a href="services.html#suvi">Suivi</a></li>
                 </ul>
               </li>
         
@@ -80,37 +80,77 @@
               <p class="phone-number">06 70 91 43 84</p>
               <a href="tel:0801840571" class="button-primary">Appelez-nous</a>
             </div>
-        
-            <!-- Formulaire à droite -->
-            <div class="hero-form">
+            <!-- Formulaire initial -->
+            <div class="hero-form" id="hero-form">
               <h3>Je veux me débarrasser de...</h3>
-              <select>
-                <option>Punaises de lit</option>
-                <option>Rats</option>
-                <option>Cafards</option>
-                <option>Souris</option>
-                <option>Guêpes</option>
-                <option>Moustiques</option>
-                <option>Mouches</option>
-                <option>Oiseau</option>
-                <option>Autres nuisibles</option>
-              </select>
-              <input type="text" placeholder="Votre code postal">
-        
-              <div class="choice-container">
-                <div class="choice active">
-                  <img src="images/maison.png" alt="Domicile">
-                  <p>Domicile</p>
+              <form id="devis-form">
+                
+                <label for="nuisible">Sélectionnez un nuisible :</label>
+                <select id="nuisible" name="nuisible" required>
+                  <option value="">-- Sélectionner --</option>
+                  <option value="punaises">Punaises de lit</option>
+                  <option value="rats">Rats</option>
+                  <option value="cafards">Cafards</option>
+                  <option value="souris">Souris</option>
+                  <option value="guepes">Guêpes</option>
+                  <option value="moustiques">Moustiques</option>
+                  <option value="mouches">Mouches</option>
+                  <option value="oiseau">Oiseau</option>
+                  <option value="autres">Autres nuisibles</option>
+                </select>
+
+                <label for="code-postal">Votre code postal :</label>
+                <input type="text" id="code-postal" name="code_postal" placeholder="Votre code postal" required pattern="[0-9]{5}">
+
+                <div class="choice-container">
+                  <label class="choice">
+                    <input type="radio" name="type_lieu" value="Domicile">
+                    <div class="choice-content">
+                      <img src="images/maison.png" alt="Domicile">
+                      <p>Domicile</p>
+                    </div>
+                  </label>
+
+                  <label class="choice">
+                    <input type="radio" name="type_lieu" value="Entreprise">
+                    <div class="choice-content">
+                      <img src="images/entreprise.png" alt="Entreprise">
+                      <p>Entreprise</p>
+                    </div>
+                  </label>
                 </div>
-                <div class="choice">
-                  <img src="images/entreprise.png" alt="Entreprise">
-                  <p>Entreprise</p>
-                </div>
-              </div>
-        
-              <button class="search-btn">Rechercher une solution</button>
-              <p class="identify-link">Vous avez des doutes ? <a href="#">Identifiez le nuisible</a></p>
+
+                <button type="button" id="search-btn" class="search-btn">Rechercher une solution</button>
+              </form>
             </div>
+
+            <!-- Résumé + Formulaire Final -->
+            <div class="summary-form" id="summary-form" style="display: none;">
+              <h3>Obtenir un devis pour <span id="summary-nuisible"></span> en <span id="summary-lieu"></span> à <span id="summary-code-postal"></span></h3>
+              <p>Remplissez le formulaire ci-dessous et nous vous rappellerons dès que possible.</p>
+
+              <form id="contact-form">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Numéro de téléphone :</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <button type="submit" class="send-btn">Envoyer</button>
+              </form>
+
+              <!-- Bouton pour changer la recherche -->
+              <p class="change-search">
+                <a href="#" id="change-search">Modifier ma recherche</a>
+              </p>
+            </div>
+
+
+            
+            
           </div>
         </section>
       </header>
