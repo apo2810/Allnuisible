@@ -14959,37 +14959,10 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 .button-primary:hover {
     background: #cc8400;
 }
-
-/* 🟠 RESPONSIVE DESIGN (Adaptation pour mobile) */
-@media (max-width: 992px) {
-    .hero-container {
-        flex-direction: column; /* Empile le texte et le formulaire */
-        text-align: center;
-        gap: 30px;
-    }
-
-    .hero-text {
-        max-width: 100%; /* Texte en pleine largeur */
-    }
-
-    .hero-text h1 {
-        font-size: 36px; /* Réduit la taille du titre */
-    }
-
-    .phone-number {
-        font-size: 24px;
-        padding: 8px 15px;
-    }
-
-    .hero-form {
-        max-width: 100%; /* Formulaire en pleine largeur */
-    }
-}
-
 /* 🟠 Conteneur du texte */
 .hero-text {
-    max-width: 50%; /* Limite la largeur sur grand écran */
-    text-align: left; /* Aligné à gauche par défaut */
+    max-width: 50%; /* Largeur limitée sur desktop */
+    text-align: left; /* Alignement à gauche */
 }
 
 /* 🟠 Titre principal */
@@ -14997,17 +14970,31 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     font-size: 42px; /* Taille normale sur desktop */
     font-weight: bold;
     margin-bottom: 15px;
-    color: #FFA500; /* Couleur orange pour un bon contraste */
+    color: #FFA500; /* Couleur orange */
 }
 
 /* 🟠 Paragraphe */
 .hero-text p {
     font-size: 18px;
     margin-bottom: 15px;
+    line-height: 1.5; /* Espacement du texte */
 }
 
-/* ✅ RESPONSIVE DESIGN (Tablette et mobile) */
+/* 🟠 Numéro de téléphone */
+.phone-number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* 🟠 RESPONSIVE DESIGN (Tablette et mobile) */
 @media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column; /* Empile le texte et le formulaire */
+        text-align: center;
+        gap: 30px;
+    }
+
     .hero-text {
         max-width: 80%; /* Ajuste la largeur */
         text-align: center; /* Centre le texte */
@@ -15021,11 +15008,21 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     .hero-text p {
         font-size: 16px;
     }
+
+    .phone-number {
+        font-size: 24px;
+        padding: 8px 15px;
+    }
+
+    .hero-form {
+        max-width: 100%; /* Formulaire en pleine largeur */
+    }
 }
 
+/* 🟠 Mobile (moins de 768px) */
 @media (max-width: 768px) {
     .hero-text {
-        max-width: 90%; /* Encore plus large sur petits écrans */
+        max-width: 90%;
     }
 
     .hero-text h1 {
@@ -15035,17 +15032,27 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     .hero-text p {
         font-size: 14px;
     }
+
+    .phone-number {
+        font-size: 22px;
+    }
 }
 
+/* 🟠 Très petits écrans (moins de 480px) */
 @media (max-width: 480px) {
     .hero-text h1 {
-        font-size: 26px; /* Encore plus petit sur téléphones étroits */
+        font-size: 26px; /* Encore plus petit */
     }
 
     .hero-text p {
         font-size: 13px;
     }
+
+    .phone-number {
+        font-size: 20px;
+    }
 }
+
 
 
 .hero-section {
