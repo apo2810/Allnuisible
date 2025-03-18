@@ -15860,11 +15860,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     }
 
     .service-image img {
-        max-width: 90%; /* Ajuste la largeur de l'image */
+        max-width: 90% !important; /* Ajuste la largeur de l'image */
     }
 
     .service-inverted {
-        flex-direction: column; /* Annule l'inversion pour garder un alignement propre */
+        flex-direction: column !important; /* Annule l'inversion pour garder un alignement propre */
     }
 }
 
@@ -15889,7 +15889,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     }
 
     .service-image img {
-        max-width: 100%;
+        max-width: 100% !important;
     }
 }
 
