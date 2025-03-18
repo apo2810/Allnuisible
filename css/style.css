@@ -14946,12 +14946,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 /* 🟠 Conteneur du texte */
 .hero-text {
     max-width: 50%; /* Largeur limitée sur desktop */
-    text-align: left; /* Alignement à gauche */
+    text-align: left; /* Alignement à gauche par défaut */
+    margin: 0 auto;
 }
 
 /* 🟠 Titre principal */
 .hero-text h1 {
-    font-size: 42px; /* Taille normale sur desktop */
+    font-size: 42px; /* Taille normale sur grand écran */
     font-weight: bold;
     margin-bottom: 15px;
     color: #FFA500; /* Couleur orange */
@@ -14980,22 +14981,20 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     }
 
     .hero-text {
-        max-width: 80%; /* Ajuste la largeur */
-        text-align: center; /* Centre le texte */
-        margin: 0 auto;
+        max-width: 90% !important; /* Ajuste la largeur et force l'application */
+        text-align: center !important; /* Centre le texte sur mobile */
     }
 
     .hero-text h1 {
-        font-size: 36px; /* Réduction du titre */
+        font-size: 32px !important; /* Taille plus petite */
     }
 
     .hero-text p {
-        font-size: 16px;
+        font-size: 16px !important;
     }
 
     .phone-number {
-        font-size: 24px;
-        padding: 8px 15px;
+        font-size: 22px !important;
     }
 
     .hero-form {
@@ -15006,36 +15005,38 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 /* 🟠 Mobile (moins de 768px) */
 @media (max-width: 768px) {
     .hero-text {
-        max-width: 90%;
+        max-width: 100% !important;
+        padding: 0 20px; /* Ajoute de l'espace sur les côtés */
     }
 
     .hero-text h1 {
-        font-size: 30px; /* Réduction plus importante */
+        font-size: 28px !important;
     }
 
     .hero-text p {
-        font-size: 14px;
+        font-size: 15px !important;
     }
 
     .phone-number {
-        font-size: 22px;
+        font-size: 20px !important;
     }
 }
 
 /* 🟠 Très petits écrans (moins de 480px) */
 @media (max-width: 480px) {
     .hero-text h1 {
-        font-size: 26px; /* Encore plus petit */
+        font-size: 24px !important;
     }
 
     .hero-text p {
-        font-size: 13px;
+        font-size: 14px !important;
     }
 
     .phone-number {
-        font-size: 20px;
+        font-size: 18px !important;
     }
 }
+
 
 
 
