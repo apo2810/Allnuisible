@@ -14986,24 +14986,57 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     }
 }
 
-@media (max-width: 768px) {
+/* 🟠 Conteneur du texte */
+.hero-text {
+    max-width: 50%; /* Limite la largeur sur grand écran */
+    text-align: left; /* Aligné à gauche par défaut */
+}
+
+/* 🟠 Titre principal */
+.hero-text h1 {
+    font-size: 42px; /* Taille normale sur desktop */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #FFA500; /* Couleur orange pour un bon contraste */
+}
+
+/* 🟠 Paragraphe */
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* ✅ RESPONSIVE DESIGN (Tablette et mobile) */
+@media (max-width: 992px) {
+    .hero-text {
+        max-width: 80%; /* Ajuste la largeur */
+        text-align: center; /* Centre le texte */
+        margin: 0 auto;
+    }
+
     .hero-text h1 {
-        font-size: 30px;
+        font-size: 36px; /* Réduction du titre */
     }
 
     .hero-text p {
         font-size: 16px;
     }
+}
 
-    .phone-number {
-        font-size: 22px;
+@media (max-width: 768px) {
+    .hero-text {
+        max-width: 90%; /* Encore plus large sur petits écrans */
     }
 
-    .button-primary {
-        font-size: 16px;
-        padding: 10px 20px;
+    .hero-text h1 {
+        font-size: 30px; /* Réduction plus importante */
+    }
+
+    .hero-text p {
+        font-size: 14px;
     }
 }
+
 @media (max-width: 480px) {
     .hero-text h1 {
         font-size: 26px; /* Encore plus petit sur téléphones étroits */
@@ -15013,6 +15046,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
         font-size: 13px;
     }
 }
+
 
 .hero-section {
     position: relative;
