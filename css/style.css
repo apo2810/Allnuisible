@@ -14860,6 +14860,151 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 /* Heros */
+/* 🟠 Structure principale du header */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 600px; /* Évite que le header soit trop petit */
+    padding: 50px 10%;
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* 🟠 Conteneur principal */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 50px;
+}
+
+/* 🟠 Texte principal */
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* 🟠 Numéro de téléphone bien visible */
+.phone-number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* 🟠 Formulaire */
+/* Ajustement général du formulaire */
+.hero-form {
+    max-width: 90%; /* Réduit la largeur du formulaire sur mobile */
+    width: 100%;
+    margin: 0 auto; /* Centre bien le formulaire */
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: visible !important; /* Assure que le formulaire n'est pas coupé */
+}
+
+/* Empêcher le débordement et ajuster sur mobile */
+@media (max-width: 768px) {
+    .hero-section {
+        overflow: visible !important; /* Permet d'afficher tout le contenu */
+        height: auto !important; /* Ajuste la hauteur du header */
+        padding-bottom: 50px; /* Ajoute de l’espace en bas */
+    }
+
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-form {
+        max-width: 95%; /* Ajuste pour éviter la coupure */
+    }
+}
+
+
+/* 🟠 Bouton principal */
+.button-primary {
+    display: inline-block;
+    background: #FFA500;
+    color: white;
+    font-size: 18px;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button-primary:hover {
+    background: #cc8400;
+}
+
+/* 🟠 RESPONSIVE DESIGN (Adaptation pour mobile) */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column; /* Empile le texte et le formulaire */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text {
+        max-width: 100%; /* Texte en pleine largeur */
+    }
+
+    .hero-text h1 {
+        font-size: 36px; /* Réduit la taille du titre */
+    }
+
+    .phone-number {
+        font-size: 24px;
+        padding: 8px 15px;
+    }
+
+    .hero-form {
+        max-width: 100%; /* Formulaire en pleine largeur */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .phone-number {
+        font-size: 22px;
+    }
+
+    .button-primary {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
 .hero-section {
     position: relative;
     background: url('../images/hero-sombre.jpg') no-repeat center center !important; 
@@ -14929,20 +15074,47 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	margin-bottom: 15px;
   }
   
-  .phone-number {
-    font-size: 28px; /* Augmenter la taille du numéro */
+  /* 🟠 Style général du numéro de téléphone */
+/* 🟠 Style général du numéro de téléphone */
+.phone-number {
+    font-size: 32px; /* Taille normale sur desktop */
     font-weight: bold;
-    color: #fff; /* Blanc pour bien contraster */
-    display: inline-block;
-    padding: 15px 20px; /* Plus d'espace autour */
+    color: #fff;
+    padding: 10px 20px;
     border-radius: 8px;
-    letter-spacing: 1px; /* Espacement entre les chiffres pour meilleure lisibilité */
-    text-align: center;
+    display: inline-block;
 }
+
+/* ✅ Ajustement du texte à l’intérieur du numéro */
 .phone-number span {
-    font-size: 32px; /* Numéro encore plus grand */
+    font-size: 32px; /* Taille de base */
     font-weight: bold;
 }
+
+/* 📱 Réduction de la taille sur mobile */
+@media (max-width: 768px) {
+    .phone-number {
+        font-size: 24px; /* Réduction globale */
+        padding: 8px 15px;
+    }
+
+    .phone-number span {
+        font-size: 20px; /* Ajustement du texte */
+    }
+}
+
+/* 📱 Encore plus petit sur très petits écrans */
+@media (max-width: 480px) {
+    .phone-number {
+        font-size: 20px; /* Encore plus petit */
+        padding: 6px 12px;
+    }
+
+    .phone-number span {
+        font-size: 18px; /* Ajustement final */
+    }
+}
+
   .button-primary {
 	display: inline-block;
 	background: #F39200;
@@ -15426,99 +15598,138 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	}
   }
   /* ---- SECTION GLOBALE ---- */
+/* ✅ Section nuisibles : Ajustement général */
 .nuisibles-section {
-	background: #f8f9fa;
-	padding: 50px 0;
-	text-align: center;
-	padding-top: 200px; /* Ajuste selon la hauteur du menu */
-  }
-  
-  .nuisibles-section h2 {
-	font-size: 2.5rem;
-	color: #222;
-	margin-bottom: 40px;
-  }
-  
-  /* ---- CATÉGORIE ---- */
-  .nuisible-category {
-	margin-bottom: 50px;
-	scroll-margin-top: 150px;
-  }
-  
-  .nuisible-category h3 {
-	font-size: 2rem;
-	color: #ff8000;
-	text-align: left;
-	padding-left: 20px;
-	margin-bottom: 20px;
-  }
-  
-  /* ---- GRID FLEXIBLE ---- */
-  .nuisible-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 20px;
-	max-width: 1200px;
-	margin: auto;
-	padding: 0 20px;
-  }
-  
-  /* ---- CARTE DE CHAQUE NUISIBLE ---- */
-  .nuisible-card {
-	background: white;
-	border-radius: 10px;
-	padding: 15px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	transition: transform 0.3s, box-shadow 0.3s;
-	text-align: center;
-  }
-  
-  .nuisible-card img {
-	width: 100%;
-	max-height: 180px;
-	object-fit: cover;
-	border-radius: 10px;
-	margin-bottom: 10px;
-  }
-  
-  .nuisible-card h4 {
-	font-size: 1.4rem;
-	color: #222;
-	margin-top: 10px;
-  }
-  
-  .nuisible-card p {
-	font-size: 1rem;
-	color: #555;
-	line-height: 1.5;
-	margin-top: 5px;
-  }
-  
-  /* ---- EFFET AU SURVOL ---- */
-  .nuisible-card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
-  .nuisible-card-full img {
-    width: 100%;
-    height: auto; /* Garde les proportions */
-    max-height: none; /* Supprime la contrainte de hauteur */
-    object-fit: contain; /* Assure que l’image entière est visible */
+    background: #f8f9fa;
+    padding: 50px 20px;
+    text-align: center;
+    padding-top: 180px; /* Ajuste selon la hauteur du menu */
 }
 
-  /* ---- RESPONSIVE (MOBILE) ---- */
-  @media (max-width: 768px) {
-	.nuisibles-section h2 {
-	  font-size: 2rem;
-	}
-	.nuisible-category h3 {
-	  font-size: 1.8rem;
-	  text-align: center;
-	}
-	.nuisible-card p {
-	  font-size: 0.9rem;
-	}
-  }
+/* ✅ Titre principal */
+.nuisibles-section h2 {
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 40px;
+}
+
+/* ✅ Catégorie */
+.nuisible-category {
+    margin-bottom: 50px;
+    scroll-margin-top: 150px;
+}
+
+/* ✅ Ajustement du titre de catégorie */
+.nuisible-category h3 {
+    font-size: 2rem;
+    color: #ff8000;
+    text-align: left;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+/* ✅ Grille adaptable */
+.nuisible-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Assure un bon affichage */
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* ✅ Cartes nuisibles */
+.nuisible-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+/* ✅ Images responsives */
+.nuisible-card img {
+    width: 100%;
+    height: 200px; /* Assure une taille uniforme */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* ✅ Titres des cartes */
+.nuisible-card h4 {
+    font-size: 1.4rem;
+    color: #222;
+    margin-top: 10px;
+}
+
+/* ✅ Texte des cartes */
+.nuisible-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+/* ✅ Effet au survol */
+.nuisible-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Gestion des images pour qu'elles ne soient pas coupées */
+.nuisible-card-full img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+}
+
+/* 🟠 RESPONSIVE DESIGN (Mobile & Tablette) */
+@media (max-width: 992px) {
+    .nuisibles-section h2 {
+        font-size: 2rem;
+    }
+
+    .nuisible-category h3 {
+        font-size: 1.8rem;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .nuisible-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste les colonnes */
+    }
+
+    .nuisible-card {
+        padding: 12px;
+    }
+
+    .nuisible-card p {
+        font-size: 0.9rem;
+    }
+
+    .nuisible-card img {
+        height: 180px; /* Réduction de la taille des images */
+    }
+}
+
+/* ✅ Petits écrans (Téléphones) */
+@media (max-width: 600px) {
+    .nuisible-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    .nuisible-category h3 {
+        font-size: 1.6rem;
+    }
+
+    .nuisible-card img {
+        height: 160px; /* Adapter la hauteur */
+    }
+}
+
   
   
 .service-section {
