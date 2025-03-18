@@ -15004,6 +15004,15 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
         padding: 10px 20px;
     }
 }
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 26px; /* Encore plus petit sur téléphones étroits */
+    }
+
+    .hero-text p {
+        font-size: 13px;
+    }
+}
 
 .hero-section {
     position: relative;
