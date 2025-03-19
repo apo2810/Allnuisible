@@ -15938,6 +15938,25 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     max-width: 65%;
 }
 
+
+
+/* ✅ RESPONSIVE DESIGN pour mobile */
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column; /* Empile le label et le champ */
+        align-items: flex-start;
+    }
+
+    #contact-form label {
+        width: 100%; /* Prend toute la largeur */
+        text-align: left; /* Aligne le texte à gauche */
+    }
+
+    #contact-form input {
+        width: 100%; /* Largeur complète pour éviter les décalages */
+    }
+}
+
 /* Assurer que le formulaire prend toute la largeur */
 .rd-mailform {
     width: 100%;
