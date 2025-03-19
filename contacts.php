@@ -111,7 +111,7 @@
             </div>
             <div class="col-md-8 col-lg-8 contact-form-section"> <!-- Augmenter la largeur du formulaire -->
               <h4 class="heading-decorated">Contactez-nous</h4>
-              <form class="rd-mailform rd-mailform_style-1" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+              <form action="send_mail.php" method="POST">
                 <div class="form-wrap form-wrap_icon linear-icon-man">
                   <input class="form-input" id="contact-name" type="text" name="name" placeholder="Votre nom" required>
                 </div>
@@ -185,7 +185,14 @@
           </div>
         </div>
       </footer>
-    </div>
+      <!-- 📌 Pop-up de confirmation -->
+      <div id="popup-confirmation" class="popup">
+          <div class="popup-content">
+              <span class="close-popup">&times;</span>
+              <p>Votre message a bien été envoyé. Merci !</p>
+              <button onclick="closePopup()">OK</button>
+          </div>
+      </div>
 
   <!-- Vendor JS Files -->
   <script src="assets/javascripts/jquery.min.js"></script>
@@ -208,6 +215,7 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     
+
     <!-- coded by Ragnar-->
     <?php
     if (isset($_POST['message'])) {

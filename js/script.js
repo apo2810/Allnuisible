@@ -1555,76 +1555,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-
-        // Envoyer l'e-mail (requiert un backend)
-        sendEmail(name, email, phone, summaryText.innerHTML);
-    });
-
-    function sendEmail(name, email, phone, summary) {
-        // Simulation de l'envoi d'un e-mail via une requête POST (exemple API backend)
-        fetch("https://your-backend.com/send-email", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                phone: phone,
-                summary: summary
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert("Votre demande a été envoyée avec succès !");
-            document.getElementById("contact-form").reset();
-        })
-        .catch(error => {
-            console.error("Erreur lors de l'envoi de l'e-mail", error);
-            alert("Une erreur est survenue. Veuillez réessayer plus tard.");
-        });
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("devis-form");
-    const searchBtn = document.getElementById("search-btn");
-    const heroForm = document.getElementById("hero-form");
-    const summaryForm = document.getElementById("summary-form");
-    const summaryNuisible = document.getElementById("summary-nuisible");
-    const summaryLieu = document.getElementById("summary-lieu");
-    const summaryCodePostal = document.getElementById("summary-code-postal");
-    const contactForm = document.getElementById("contact-form");
-
-    searchBtn.addEventListener("click", function () {
-        const nuisible = document.getElementById("nuisible").value;
-        const codePostal = document.getElementById("code-postal").value;
-        const lieu = document.querySelector("input[name='type_lieu']:checked");
-
-        if (nuisible && codePostal && lieu) {
-            // Mettre à jour le résumé
-            summaryNuisible.textContent = nuisible;
-            summaryLieu.textContent = lieu.value;
-            summaryCodePostal.textContent = codePostal;
-
-            // Remplacer la box actuelle par la nouvelle
-            heroForm.style.display = "none";
-            summaryForm.style.display = "block";
-
-            // Ajouter une légère transition d'apparition
-            setTimeout(() => summaryForm.style.opacity = "1", 100);
-        } else {
-            alert("Veuillez remplir tous les champs avant de continuer.");
-        }
-    });
-
-    contactForm.addEventListener("submit", function (e) {
+	contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const name = document.getElementById("name").value;
@@ -1680,4 +1611,74 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
 
+    let formData = new FormData(this);
+
+    fetch(this.action, {
+        method: "POST",
+        body: formData,
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Ouvre une nouvelle fenêtre avec le message
+        let confirmationWindow = window.open("", "_blank", "width=400,height=300");
+        confirmationWindow.document.write("<p style='font-size:18px; font-family:sans-serif;'>Votre message a bien été envoyé. Merci !</p>");
+        confirmationWindow.document.close();
+        
+        // Réinitialise le formulaire
+        document.getElementById("contact-form").reset();
+    })
+    .catch(error => {
+        alert("Erreur lors de l'envoi du message.");
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const contactForm = document.getElementById("contact-form");
+    const popup = document.getElementById("popup-confirmation");
+    const closePopupBtn = document.querySelector(".close-popup");
+    const okButton = document.getElementById("popup-ok");
+
+    // S'assurer que le pop-up est caché au chargement de la page
+    popup.style.display = "none";
+
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Empêche le rechargement de la page
+
+        let formData = new FormData(this);
+
+        fetch(this.action, {
+            method: "POST",
+            body: formData,
+        })
+        .then(response => response.text())
+        .then(data => {
+            // ✅ Afficher le pop-up uniquement après soumission réussie
+            popup.style.display = "flex";
+            
+            // ✅ Réinitialiser le formulaire après envoi
+            contactForm.reset();
+        })
+        .catch(error => {
+            alert("Une erreur s'est produite, veuillez réessayer.");
+        });
+    });
+
+    // ✅ Fermer le pop-up en cliquant sur la croix
+    closePopupBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+    // ✅ Fermer le pop-up en cliquant sur le bouton "OK"
+    okButton.addEventListener("click", function () {
+        popup.style.display = "none";
+    });
+
+    // ✅ Fermer le pop-up en cliquant en dehors de la boîte
+    window.addEventListener("click", function (event) {
+        if (event.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+});
