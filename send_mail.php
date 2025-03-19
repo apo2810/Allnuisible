@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Vérifier si l'email est valide
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "L'adresse e-mail n'est pas valide.";
+        echo json_encode(["status" => "error", "message" => "L'adresse e-mail n'est pas valide."]);
         exit;
     }
 
@@ -41,11 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Envoi de l'email
     if (mail($to, $subject, $message, $headers)) {
-        echo "Votre message a bien été envoyé.";
+        echo json_encode(["status" => "success", "message" => "Votre message a bien été envoyé."]);
     } else {
-        echo "Erreur lors de l'envoi du message.";
+        echo json_encode(["status" => "error", "message" => "Erreur lors de l'envoi du message."]);
     }
 } else {
-    echo "Accès non autorisé.";
+    echo json_encode(["status" => "error", "message" => "Accès non autorisé."]);
 }
 ?>

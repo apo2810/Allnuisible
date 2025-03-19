@@ -111,7 +111,7 @@
             </div>
             <div class="col-md-8 col-lg-8 contact-form-section"> <!-- Augmenter la largeur du formulaire -->
               <h4 class="heading-decorated">Contactez-nous</h4>
-              <form action="send_mail.php" method="POST">
+              <form id="contact-form" action="send_mail.php" method="POST">
                 <div class="form-wrap form-wrap_icon linear-icon-man">
                   <input class="form-input" id="contact-name" type="text" name="name" placeholder="Votre nom" required>
                 </div>
@@ -187,12 +187,13 @@
       </footer>
       <!-- 📌 Pop-up de confirmation -->
       <div id="popup-confirmation" class="popup">
-          <div class="popup-content">
-              <span class="close-popup">&times;</span>
-              <p>Votre message a bien été envoyé. Merci !</p>
-              <button onclick="closePopup()">OK</button>
-          </div>
-      </div>
+    <div class="popup-content">
+        <span class="close-popup">&times;</span>
+        <h3>Message envoyé !</h3>
+        <p id="popup-message">Votre message a bien été envoyé.</p>
+        <button id="popup-ok">OK</button>
+    </div>
+</div>
 
   <!-- Vendor JS Files -->
   <script src="assets/javascripts/jquery.min.js"></script>
@@ -215,24 +216,5 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     
-
-    <!-- coded by Ragnar-->
-    <?php
-    if (isset($_POST['message'])) {
-        $entete  = 'MIME-Version: 1.0' . "\r\n";
-        $entete .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-        $entete .= 'From: allnuisibles.com' . "\r\n";
-        $entete .= 'Reply-to: ' . $_POST['email'];
-
-        $message = '<h1>Message envoyé depuis la page Contact de Allnuisibles</h1>
-        <p><b>Email : </b>' . $_POST['email'] . '<br>
-        <p><b>nom : </b>' . $_POST['name'] . '<br>
-        <b>Message : </b>' . htmlspecialchars($_POST['message']) . '</p>';
-
-        $retour = mail('apolline.fert@gmail.com', 'Envoi depuis page Contact', $message, $entete);
-        if($retour)
-            echo '<p>Votre message a bien été envoyé.</p>';
-    }
-    ?>
   </body>
 </html>

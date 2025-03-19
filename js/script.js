@@ -1555,7 +1555,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-	contactForm.addEventListener("submit", function (e) {
+    contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const name = document.getElementById("name").value;
@@ -1563,10 +1563,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const phone = document.getElementById("phone").value;
 
         // Envoyer l'e-mail (requiert un backend)
-        sendEmail(name, email, phone, summaryNuisible.textContent, summaryLieu.textContent, summaryCodePostal.textContent);
+        sendEmail(name, email, phone, summaryText.innerHTML);
     });
 
-    function sendEmail(name, email, phone, nuisible, lieu, codePostal) {
+    function sendEmail(name, email, phone, summary) {
+        // Simulation de l'envoi d'un e-mail via une requête POST (exemple API backend)
         fetch("https://your-backend.com/send-email", {
             method: "POST",
             headers: {
@@ -1576,15 +1577,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 name: name,
                 email: email,
                 phone: phone,
-                nuisible: nuisible,
-                lieu: lieu,
-                codePostal: codePostal
+                summary: summary
             })
         })
         .then(response => response.json())
         .then(data => {
             alert("Votre demande a été envoyée avec succès !");
-            contactForm.reset();
+            document.getElementById("contact-form").reset();
         })
         .catch(error => {
             console.error("Erreur lors de l'envoi de l'e-mail", error);
@@ -1593,54 +1592,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 document.addEventListener("DOMContentLoaded", function () {
-    const heroForm = document.getElementById("hero-form");
-    const summaryForm = document.getElementById("summary-form");
-    const changeSearchBtn = document.getElementById("change-search");
-
-    changeSearchBtn.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        // Réafficher le formulaire initial
-        heroForm.style.display = "block";
-        summaryForm.style.opacity = "0";
-
-        setTimeout(() => {
-            summaryForm.style.display = "none";
-        }, 300);
-    });
-});
-
-
-document.getElementById("contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    let formData = new FormData(this);
-
-    fetch(this.action, {
-        method: "POST",
-        body: formData,
-    })
-    .then(response => response.text())
-    .then(data => {
-        // Ouvre une nouvelle fenêtre avec le message
-        let confirmationWindow = window.open("", "_blank", "width=400,height=300");
-        confirmationWindow.document.write("<p style='font-size:18px; font-family:sans-serif;'>Votre message a bien été envoyé. Merci !</p>");
-        confirmationWindow.document.close();
-        
-        // Réinitialise le formulaire
-        document.getElementById("contact-form").reset();
-    })
-    .catch(error => {
-        alert("Erreur lors de l'envoi du message.");
-    });
-});
-document.addEventListener("DOMContentLoaded", function () {
     const contactForm = document.getElementById("contact-form");
     const popup = document.getElementById("popup-confirmation");
+    const popupMessage = document.getElementById("popup-message");
     const closePopupBtn = document.querySelector(".close-popup");
     const okButton = document.getElementById("popup-ok");
 
-    // S'assurer que le pop-up est caché au chargement de la page
+    // ✅ Cacher le pop-up au chargement de la page
     popup.style.display = "none";
 
     contactForm.addEventListener("submit", function (event) {
@@ -1648,20 +1606,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let formData = new FormData(this);
 
-        fetch(this.action, {
+        fetch("send_mail.php", { // Assure-toi que le chemin est correct
             method: "POST",
             body: formData,
         })
-        .then(response => response.text())
+        .then(response => response.json()) // ✅ Lire la réponse en JSON
         .then(data => {
-            // ✅ Afficher le pop-up uniquement après soumission réussie
-            popup.style.display = "flex";
-            
-            // ✅ Réinitialiser le formulaire après envoi
-            contactForm.reset();
+            // ✅ Vérifier si l'envoi est un succès ou une erreur
+            if (data.status === "success") {
+                popupMessage.innerHTML = "✅ " + data.message;
+                popup.style.display = "flex"; // Afficher le pop-up
+                
+                // ✅ Réinitialiser le formulaire après envoi
+                contactForm.reset();
+            } else {
+                // ❌ Afficher le message d'erreur dans le pop-up
+                popupMessage.innerHTML = "❌ " + data.message;
+                popup.style.display = "flex";
+            }
         })
         .catch(error => {
-            alert("Une erreur s'est produite, veuillez réessayer.");
+            popupMessage.innerHTML = "❌ Une erreur s'est produite. Veuillez réessayer.";
+            popup.style.display = "flex";
         });
     });
 
@@ -1670,12 +1636,12 @@ document.addEventListener("DOMContentLoaded", function () {
         popup.style.display = "none";
     });
 
-    // ✅ Fermer le pop-up en cliquant sur le bouton "OK"
+    // ✅ Fermer le pop-up en cliquant sur "OK"
     okButton.addEventListener("click", function () {
         popup.style.display = "none";
     });
 
-    // ✅ Fermer le pop-up en cliquant en dehors de la boîte
+    // ✅ Fermer en cliquant en dehors du pop-up
     window.addEventListener("click", function (event) {
         if (event.target === popup) {
             popup.style.display = "none";
