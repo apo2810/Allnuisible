@@ -15109,6 +15109,24 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 	margin-bottom: 15px;
   }
   
+  /* ✅ Ajustement sur mobile */
+@media (max-width: 768px) {
+    .heading-decorated {
+        flex-direction: column; /* Empile la barre et le texte */
+        align-items: center; /* Centre tout */
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+		margin-bottom: 20px;
+    }
+
+    .heading-decorated::before {
+        width: 50px; /* Garde une bonne proportion */
+        height: 3px;
+        margin: 0 auto; /* Centre la barre */
+		margin-bottom: 20px;
+    }
+}
   /* 🟠 Style général du numéro de téléphone */
 /* 🟠 Style général du numéro de téléphone */
 .phone-number {
