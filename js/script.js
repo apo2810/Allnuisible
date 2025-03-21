@@ -1497,8 +1497,8 @@ document.addEventListener("DOMContentLoaded", function() {
         this.classList.add("active");
       });
     });
-  });
-  document.addEventListener("DOMContentLoaded", function () {
+});
+document.addEventListener("DOMContentLoaded", function () {
     // Gérer le menu mobile
     const menuToggle = document.querySelector(".menu-toggle");
     const navbarMenu = document.querySelector(".navbar-menu");
@@ -1527,9 +1527,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
     });
-  });
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("devis-form");
+});
+// pfe 
+/**
+document.addEventListener("DOMContentLoaded", function () {
+    const devisForm = document.getElementById("devis-form");
     const searchBtn = document.getElementById("search-btn");
     const summaryForm = document.getElementById("summary-form");
     const summaryText = document.getElementById("summary-text");
@@ -1542,7 +1544,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (nuisible && codePostal && lieu) {
             // Générer le résumé
-            summaryText.innerHTML = `
+            summaryText = `
                 <strong>Type de nuisible :</strong> ${nuisible} <br>
                 <strong>Lieu :</strong> ${lieu.value} <br>
                 <strong>Code Postal :</strong> ${codePostal}
@@ -1554,8 +1556,8 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Veuillez remplir tous les champs avant de continuer.");
         }
     });
-
-    contactForm.addEventListener("submit", function (e) {
+	//
+    devisForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
         const name = document.getElementById("name").value;
@@ -1563,12 +1565,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const phone = document.getElementById("phone").value;
 
         // Envoyer l'e-mail (requiert un backend)
-        sendEmail(name, email, phone, summaryText.innerHTML);
+        sendEmail(name, email, phone, summaryText);
     });
 
     function sendEmail(name, email, phone, summary) {
         // Simulation de l'envoi d'un e-mail via une requête POST (exemple API backend)
-        fetch("https://your-backend.com/send-email", {
+        fetch("send_devis.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -1591,6 +1593,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+*/
+//PFE ->send_mail
 document.addEventListener("DOMContentLoaded", function () {
     const contactForm = document.getElementById("contact-form");
     const popup = document.getElementById("popup-confirmation");
@@ -1602,34 +1606,36 @@ document.addEventListener("DOMContentLoaded", function () {
     popup.style.display = "none";
 
     contactForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Empêche le rechargement de la page
-
-        let formData = new FormData(this);
-
-        fetch("send_mail.php", { // Assure-toi que le chemin est correct
-            method: "POST",
-            body: formData,
-        })
-        .then(response => response.json()) // ✅ Lire la réponse en JSON
-        .then(data => {
-            // ✅ Vérifier si l'envoi est un succès ou une erreur
-            if (data.status === "success") {
-                popupMessage.innerHTML = "✅ " + data.message;
-                popup.style.display = "flex"; // Afficher le pop-up
-                
-                // ✅ Réinitialiser le formulaire après envoi
-                contactForm.reset();
-            } else {
-                // ❌ Afficher le message d'erreur dans le pop-up
-                popupMessage.innerHTML = "❌ " + data.message;
-                popup.style.display = "flex";
-            }
-        })
-        .catch(error => {
-            popupMessage.innerHTML = "❌ Une erreur s'est produite. Veuillez réessayer.";
-            popup.style.display = "flex";
-        });
-    });
+		event.preventDefault(); // Empêche le rechargement de la page
+	
+		let formData = new FormData(this);
+	
+		fetch("send_mail.php", { // Assure-toi que le chemin est correct
+			method: "POST",
+			body: formData,
+		})
+		.then(response => {
+			console.log("Réponse brute:", response);
+			return response.json();
+		}) // ✅ Lire la réponse en JSON
+		.then(data => {
+			console.log("Données reçues:", data);
+			if (data.status === "success") {
+				popupMessage.innerHTML = "✅ " + data.message;
+				popup.style.display = "flex"; // Afficher le pop-up
+				contactForm.reset();
+			} else {
+				popupMessage.innerHTML = "❌ " + data.message;
+				popup.style.display = "flex";
+			}
+		})
+		.catch(error => {
+			console.error("Erreur:", error);
+			popupMessage.innerHTML = "❌ Une erreur s'est produite. Veuillez réessayer.";
+			popup.style.display = "flex";
+		});
+	});
+	
 
     // ✅ Fermer le pop-up en cliquant sur la croix
     closePopupBtn.addEventListener("click", function () {
@@ -1648,3 +1654,114 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+// box 
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ Script chargé et DOM prêt");
+
+    // Sélection des éléments du DOM
+    const searchBtn = document.getElementById("search-btn");
+    const changeSearchBtn = document.getElementById("change-search");
+    const heroForm = document.getElementById("hero-form");
+    const summaryForm = document.getElementById("summary-form");
+    const devisForm = document.getElementById("deuxvis-form");
+    const formMessage = document.getElementById("form-message");
+
+    // Vérification des éléments du résumé
+    const summaryNuisible = document.getElementById("summary-nuisible");
+    const summaryLieu = document.getElementById("summary-lieu");
+    const summaryCodePostal = document.getElementById("summary-code-postal");
+
+    if (!summaryNuisible || !summaryLieu || !summaryCodePostal) {
+        console.error("❌ Un ou plusieurs éléments du résumé sont introuvables !");
+        //return;
+    }
+
+    console.log("📌 Élément trouvé : summary-nuisible =", summaryNuisible);
+    console.log("📌 Élément trouvé : summary-lieu =", summaryLieu);
+    console.log("📌 Élément trouvé : summary-code-postal =", summaryCodePostal);
+
+	    // ✅ Envoi du formulaire de demande de devis via AJAX
+		devisForm.addEventListener("submit", function (event) {
+			event.preventDefault();
+			console.log("📤 Envoi du formulaire de devis...");
+		
+			const formData = new FormData(devisForm);
+	
+			// Ajouter les champs de résumé au formulaire
+			formData.append("nuisible", summaryNuisible.textContent);
+			formData.append("code_postal", summaryCodePostal.textContent);
+			formData.append("type_lieu", summaryLieu.textContent);
+			formData.append("name", document.getElementById("name").value);
+			formData.append("email", document.getElementById("email").value);
+			formData.append("phone", document.getElementById("phone").value);
+	
+	
+			fetch("send_devis.php", {
+				method: "POST",
+				body: formData
+			})
+			.then(response => response.json())
+			.then(data => {
+				console.log("📬 Réponse du serveur :", data);
+				if (data.status === "success") {
+					formMessage.innerHTML = "<span style='color: green;'>✔️ " + data.message + "</span>";
+					devisForm.reset();
+					const popup = document.getElementById("popup-message");
+					popup.classList.add("show");
+					popup.style.display = "block";
+					setTimeout(() => {
+						popup.classList.remove("show");
+						setTimeout(() => popup.style.display = "none", 500); // Attend la fin de la transition
+					}, 4000);
+
+				} else {
+					formMessage.innerHTML = "<span style='color: red;'>❌ " + data.message + "</span>";
+				}
+			})
+			.catch(error => {
+				console.error("🚨 Erreur AJAX :", error);
+				formMessage.innerHTML = "<span style='color: red;'>❌ Une erreur est survenue.</span>";
+			});
+		
+		});
+
+    // ✅ Affichage du résumé au clic sur "Rechercher une solution"
+    searchBtn.addEventListener("click", function () {
+        console.log("📩 Clic détecté sur Rechercher une solution !");
+        
+        const nuisible = document.getElementById("nuisible").value;
+        const codePostal = document.getElementById("code-postal").value;
+        const typeLieu = document.querySelector('input[name="type_lieu"]:checked');
+
+        if (nuisible && codePostal && typeLieu) {
+            // Met à jour le résumé
+            summaryNuisible.textContent = nuisible;
+            summaryLieu.textContent = typeLieu.value;
+            summaryCodePostal.textContent = codePostal;
+
+            // Cache le formulaire initial et affiche le résumé
+            heroForm.style.display = "none";
+            summaryForm.style.display = "block";
+
+            setTimeout(() => summaryForm.classList.add("active"), 50);
+        } else {
+            alert("❌ Veuillez remplir tous les champs avant de rechercher une solution.");
+        }
+    });
+
+    // ✅ Retour au formulaire initial
+    changeSearchBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("🔄 Retour au formulaire principal");
+
+        summaryForm.classList.remove("active");
+        setTimeout(() => {
+            summaryForm.style.display = "none";
+            heroForm.style.display = "block";
+        }, 300);
+    });
+
+
+});
+
+

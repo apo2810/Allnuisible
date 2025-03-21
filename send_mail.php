@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Adresse email où envoyer les messages
-    $to = "apolline.fert@gmail.com"; 
+    $to = "Allnuisibles@orange.fr"; 
     
     // Sécurisation des entrées
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);

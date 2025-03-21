@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16939621510">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16939621510');
+</script>
   </head>
   <body>
     <div class="preloader">
@@ -29,7 +39,7 @@
           <nav class="navbar">
             <!-- Logo à gauche -->
             <div class="navbar-brand">
-              <a href="index.html">
+              <a href="index.php">
                 <img src="images/Logo-allnuisibles.png" alt="Logo all'nuisible" class="logo">
               </a>
             </div>
@@ -61,7 +71,8 @@
                 <ul class="dropdown-menu">
                   <li><a href="services.html#diagnostic">Diagnostic</a></li>
                   <li><a href="services.html#traitement">Traitement</a></li>
-                  <li><a href="services.html#suvi">Suivi</a></li>
+                  <li><a href="services.html#etancheite">Étanchéité</a></li>
+                  <li><a href="services.html#suivi">Suivi</a></li>
                 </ul>
               </li>
         
@@ -139,10 +150,10 @@
             
             <!-- Logo + Présentation -->
             <div class="footer-col col-lg-4">
-              <a class="brand" href="index.html">
+              <a class="brand" href="index.php">
                 <img src="images/Logo-allnuisibles.png" alt="Logo AllNuisibles" class="footer-logo"/>
               </a>
-              <a href="index.html">
+              <a href="index.php">
                 <img src="images/certibiocide.png" alt="certibiocide" class="footer-logo secondary-logo"/>
               </a>
               <p>

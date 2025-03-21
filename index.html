@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16939621510">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16939621510');
+</script>
   </head>
   <body>
     <div class="preloader">
@@ -60,7 +70,8 @@
                 <ul class="dropdown-menu">
                   <li><a href="services.html#diagnostic">Diagnostic</a></li>
                   <li><a href="services.html#traitement">Traitement</a></li>
-                  <li><a href="services.html#suvi">Suivi</a></li>
+                  <li><a href="services.html#etancheite">Étanchéité</a></li>
+                  <li><a href="services.html#suivi">Suivi</a></li>
                 </ul>
               </li>
         
@@ -69,8 +80,6 @@
             </ul>
           </nav>
         </header>
-        
-        
         <section class="hero-section">
           <div class="hero-container">
             <!-- Texte principal à gauche -->
@@ -85,7 +94,7 @@
             <!-- Formulaire initial -->
             <div class="hero-form" id="hero-form">
               <h3>Je veux me débarrasser de...</h3>
-              <form id="devis-form">
+              <div id="devis-form">
                 
                 <label for="nuisible">Sélectionnez un nuisible :</label>
                 <select id="nuisible" name="nuisible" required>
@@ -123,7 +132,7 @@
                 </div>
 
                 <button type="button" id="search-btn" class="search-btn">Rechercher une solution</button>
-              </form>
+              </div>
             </div>
 
             <!-- Résumé + Formulaire Final -->
@@ -131,7 +140,7 @@
               <h3>Obtenir un devis pour <span id="summary-nuisible"></span> en <span id="summary-lieu"></span> à <span id="summary-code-postal"></span></h3>
               <p>Remplissez le formulaire ci-dessous et nous vous rappellerons dès que possible.</p>
 
-              <form id="contact-form">
+              <form id="deuxvis-form">
                 <label for="name">Nom :</label>
                 <input type="text" id="name" name="name" required>
 
@@ -237,7 +246,9 @@
           </div>
         </div>
       </footer>
-
+      <!-- 📌 Pop-up de confirmation -->
+      <div id="popup-message" style="display: none;">📧 Votre demande a bien été envoyée !</div>
+      
       <footer class="footer-corporate bg-gray-darker">
         <div class="container">
           <div class="footer-corporate__inner">

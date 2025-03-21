@@ -14906,6 +14906,16 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: visible !important; /* Assure que le formulaire n'est pas coupé */
 }
+#hero-form {
+    display: block; /* Assurer que la box 1 est toujours visible au départ */
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+.hidden {
+    opacity: 0;
+    display: none; /* Seulement si nécessaire */
+    transition: opacity 0.3s ease-in-out;
+}
 
 /* Empêcher le débordement et ajuster sur mobile */
 @media (max-width: 768px) {
@@ -15258,12 +15268,28 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     margin-top: 20px;
     display: none;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+	transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
+.summary-form.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+/*
+.summary-form.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transform: translateY(0);
+}
+*/
 .summary-form h3 {
     color: black; /* Titre noir */
 }
+
 
 /* Texte du résumé */
 .summary-form p {
@@ -15947,12 +15973,12 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
         align-items: flex-start;
     }
 
-    #contact-form label {
+    #contact-form-devis label {
         width: 100%; /* Prend toute la largeur */
         text-align: left; /* Aligne le texte à gauche */
     }
 
-    #contact-form input {
+    #contact-form-devis input {
         width: 100%; /* Largeur complète pour éviter les décalages */
     }
 }
@@ -16072,3 +16098,35 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     background: #e68900;
 }
 
+/* test */
+#summary-form {
+	display: none;
+	transition: opacity 0.3s ease-in-out;
+}
+
+#summary-form.active {
+	opacity: 1;
+}
+
+#popup-message {
+	display: none;
+	opacity: 0;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #4caf50;
+	color: white;
+	padding: 15px 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	z-index: 1000;
+	transition: opacity 0.5s ease-in-out;
+}
+
+#popup-message.show {
+	opacity: 1;
+}
+
+#form-message {
+	margin-top: 10px;
+}
